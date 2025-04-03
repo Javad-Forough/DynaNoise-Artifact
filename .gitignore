@@ -1,0 +1,6 @@
+dyna_env/
+data/
+__pycache__
+saved_models/
+splitai_submodels/
+saved_models_shadow/

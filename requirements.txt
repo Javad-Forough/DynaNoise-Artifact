@@ -1,0 +1,9 @@
+torch>=1.8
+torchvision>=0.9
+numpy
+pandas
+scikit-learn
+matplotlib
+tqdm
+datasets
+transformers
