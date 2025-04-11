@@ -6,17 +6,17 @@ This repository contains the artifact for the paper titled:
 
 ## Setup
 
-1. Install the required dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-2. (Optional) Create and activate a virtual environment before installing:
+1. (Optional) Create and activate a virtual environment before installing:
 
 ```bash
 python3 -m venv dyna_env
 source dyna_env/bin/activate
+```
+
+2. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## Reproducing Table 3 Results
