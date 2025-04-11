@@ -93,8 +93,6 @@ def maybe_train_model(dataset_name, model_name, epochs, batch_size, device):
     ds_lower = dataset_name.lower()
     if ds_lower in ["cifar10", "imagenet-10"]:
         num_classes = 10
-    elif ds_lower in ["cifar100", "imagenet-100"]:
-        num_classes = 100
     elif ds_lower == "sst2":
         num_classes = 2
     else:

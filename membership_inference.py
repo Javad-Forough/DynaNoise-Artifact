@@ -1,5 +1,3 @@
-# File: membership_inference.py
-
 import torch
 import torch.nn.functional as F
 import numpy as np
@@ -285,8 +283,6 @@ def compute_shadow_attack_metrics(
     # Make sure to set num_classes in a way consistent with your main model
     if ds_lower in ['cifar10', 'imagenet-10']:
         num_classes = 10
-    elif ds_lower in ['cifar100', 'imagenet-100']:
-        num_classes = 100
     elif ds_lower == 'sst2':
         num_classes = 2
     else:

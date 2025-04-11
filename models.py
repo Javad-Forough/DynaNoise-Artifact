@@ -7,7 +7,7 @@ import torchvision.models as models
 ###############################################################################
 class DistilBertClassifier(nn.Module):
     """
-    A simple wrapper around DistilBERT for sequence classification.
+    A wrapper around DistilBERT for sequence classification.
     Expects batches to include 'input_ids', 'attention_mask', and labels.
     """
     def __init__(self, num_classes=2):
@@ -21,7 +21,7 @@ class DistilBertClassifier(nn.Module):
     
     def forward(self, input_ids, attention_mask=None):
         outputs = self.distilbert(input_ids=input_ids, attention_mask=attention_mask)
-        # Grab the [CLS]-token embedding (DistilBERT often uses outputs.last_hidden_state[:,0])
+        # Grab the [CLS]-token embedding
         cls_hidden_state = outputs.last_hidden_state[:, 0]  
         logits = self.classifier(cls_hidden_state)
         return logits
@@ -35,7 +35,7 @@ def get_model(model_name, num_classes):
     Returns a PyTorch model given the model_name and desired num_classes.
     model_name can be:
      - 'alexnet'
-     - 'distilbert'  (new for SST-2)
+     - 'distilbert'  (for SST-2)
     """
     model_name = model_name.lower()
     
@@ -45,7 +45,7 @@ def get_model(model_name, num_classes):
         return model
     
     elif model_name == 'distilbert':
-        # For SST-2 or other 2-class tasks, pass num_classes=2 (or as needed).
+        # For SST-2 or other 2-class tasks, pass num_classes=2.
         return DistilBertClassifier(num_classes=num_classes)
     
     else:

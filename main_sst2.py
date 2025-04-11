@@ -94,8 +94,6 @@ def maybe_train_model(dataset_name, model_name, epochs, batch_size, device):
     ds_lower = dataset_name.lower()
     if ds_lower in ["cifar10", "imagenet-10"]:
         num_classes = 10
-    elif ds_lower in ["cifar100", "imagenet-100"]:
-        num_classes = 100
     elif ds_lower == "sst2":
         num_classes = 2
     else:
@@ -292,8 +290,8 @@ def main(dataset_name='imagenet-10', model_name='alexnet', epochs=15, batch_size
     ###########################################################################
     # 5) SELENA 
     ###########################################################################
-    K = 17
-    L = 8
+    K = 25
+    L = 10
     sub_ep = 15
     dist_ep = 15
 

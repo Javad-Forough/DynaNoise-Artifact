@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from torch.utils.data import TensorDataset
 
 ###############################################################################
-# Existing loading functions (CIFAR, STL, FashionMNIST, UTKFace, ImageNet subsets)
+# Existing loading functions (CIFAR-10,ImageNet-10, and SST-2)
 ###############################################################################
 
 def load_cifar10(data_dir, batch_size=128, img_size=None):
@@ -90,7 +90,6 @@ def load_sst2(data_dir, batch_size=32):
     sst2 = sst2.map(encode, batched=True)
     sst2.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
 
-    # Typically "validation" is ~872 examples; "train" ~67k
     train_data = sst2['train']
     test_data = sst2['validation']  # we can treat the official dev set as test
 
@@ -101,7 +100,7 @@ def load_sst2(data_dir, batch_size=32):
 
 
 ###############################################################################
-# NEW: Simple wrapper for load_sst2, returning train or test
+# Simple wrapper for load_sst2, returning train or test
 ###############################################################################
 def get_sst2_loader(data_dir='data', batch_size=32, train=True):
     train_loader, test_loader = load_sst2(data_dir, batch_size)
