@@ -2,7 +2,8 @@
 
 This repository contains the artifact for the paper titled:
 
-**DynaNoise: Mitigating Membership Inference Attacks by Dynamic Probabilistic Noise Injection**
+**DynaNoise: Dynamic Probabilistic Noise Injection for Defending
+Against Membership Inference Attacks**
 
 ## Setup
 
